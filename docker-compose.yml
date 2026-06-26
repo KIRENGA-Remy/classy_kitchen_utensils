@@ -1,0 +1,31 @@
+# Local development services. The app code runs on your machine (fast reload);
+# this file only provides Postgres (and Adminer to inspect it in the browser).
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: cku-db
+    environment:
+      POSTGRES_USER: cku
+      POSTGRES_PASSWORD: cku_dev_password
+      POSTGRES_DB: classy_kitchen
+    ports:
+      - "5432:5432"
+    volumes:
+      - cku_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cku -d classy_kitchen"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    container_name: cku-adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  cku_pgdata:
