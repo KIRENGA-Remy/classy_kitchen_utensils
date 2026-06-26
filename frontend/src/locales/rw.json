@@ -1,0 +1,27 @@
+{
+  "brand": "Classy Kitchen Utensils",
+  "nav": { "home": "Ahabanza", "shop": "Iduka", "contact": "Twandikire" },
+  "hero": {
+    "title": "Ibikoresho byiza byo mu gikoni, bigezwa i Kigali",
+    "subtitle": "Ibikoresho byo guteka, imashini, amashyiga n’ibyo ku meza — ishyura mu buryo bworoshye na MTN MoMo cyangwa Airtel Money.",
+    "cta": "Gura nonaha"
+  },
+  "common": {
+    "featured": "Ibicuruzwa byihariye",
+    "allProducts": "Ibicuruzwa byose",
+    "addToCart": "Shyira mu gitebo",
+    "orderWhatsapp": "Tumiza kuri WhatsApp",
+    "inStock": "Birahari",
+    "outOfStock": "Byashize",
+    "loading": "Biragenda gufungura…",
+    "search": "Shakisha ibicuruzwa",
+    "categories": "Ibyiciro",
+    "all": "Byose"
+  },
+  "contact": {
+    "title": "Dusure cyangwa utwandikire",
+    "location": "Inyubako ya City Plaza, Kigali",
+    "payments": "Twakira MTN Mobile Money na Airtel Money"
+  },
+  "footer": { "follow": "Dukurikire", "rights": "Uburenganzira bwose bwihariwe." }
+}

@@ -1,0 +1,27 @@
+{
+  "brand": "Classy Kitchen Utensils",
+  "nav": { "home": "Home", "shop": "Shop", "contact": "Contact" },
+  "hero": {
+    "title": "Quality kitchen utensils, delivered in Kigali",
+    "subtitle": "Cookware, appliances, stoves and tableware — pay easily with MTN MoMo or Airtel Money.",
+    "cta": "Shop now"
+  },
+  "common": {
+    "featured": "Featured products",
+    "allProducts": "All products",
+    "addToCart": "Add to cart",
+    "orderWhatsapp": "Order on WhatsApp",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "loading": "Loading…",
+    "search": "Search products",
+    "categories": "Categories",
+    "all": "All"
+  },
+  "contact": {
+    "title": "Visit or contact us",
+    "location": "City Plaza Building, Kigali",
+    "payments": "We accept MTN Mobile Money and Airtel Money"
+  },
+  "footer": { "follow": "Follow us", "rights": "All rights reserved." }
+}
