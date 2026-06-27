@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { listProducts, getProductBySlug } from './product.service';
+import { listProducts, getProductBySlug, getSimilarProducts } from './product.service';
 import { listQuerySchema } from './product.schema';
 import { getLang, localizeProduct } from '../../utils/i18n';
 import { AppError } from '../../middlewares/error';
@@ -25,7 +25,16 @@ export async function getProduct(req: Request, res: Response, next: NextFunction
     const lang = getLang(req);
     const product = await getProductBySlug(req.params.slug);
     if (!product) throw new AppError(404, 'Product not found');
-    res.json(localizeProduct(product, lang));
+
+    const similarRaw = product.category
+      ? await getSimilarProducts(product.category.slug, product.slug)
+      : [];
+
+    res.json({
+      ...localizeProduct(product, lang),
+      reviews: (product as any).reviews ?? [],
+      similar: similarRaw.map((p) => localizeProduct(p, lang)),
+    });
   } catch (err) {
     next(err);
   }

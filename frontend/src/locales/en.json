@@ -1,27 +1,45 @@
 {
   "brand": "Classy Kitchen Utensils",
-  "nav": { "home": "Home", "shop": "Shop", "contact": "Contact" },
+  "topbar": { "helpline": "HELP LINE", "getApp": "Get the Mobile App", "lang": "Kinyarwanda" },
+  "nav": { "home": "Home", "shop": "Shop", "contact": "Contact", "howToBuy": "How to Buy" },
+  "menu": { "about": "About Us", "app": "Mobile App", "orders": "Orders", "signin": "Sign in", "register": "Register" },
+  "search": { "placeholder": "Search products…", "byImageTitle": "Search by Image", "byImageHint": "Upload a product photo and we'll find similar items.", "browse": "Click to browse your files", "supports": "Supports JPG, PNG (max 10MB)" },
   "hero": {
-    "title": "Quality kitchen utensils, delivered in Kigali",
-    "subtitle": "Cookware, appliances, stoves and tableware — pay easily with MTN MoMo or Airtel Money.",
-    "cta": "Shop now"
+    "slide1Title": "Quality kitchenware, delivered in Kigali",
+    "slide1Sub": "Cookware, appliances, stoves and tableware — pay easily with MTN MoMo or Airtel Money.",
+    "slide2Title": "Best prices in town",
+    "slide2Sub": "Honest pricing on everything for your kitchen.",
+    "slide3Title": "Delivered to your door",
+    "slide3Sub": "Anywhere in Rwanda — order now, we bring it to you.",
+    "shopNow": "Shop now", "browse": "Browse products", "orderNow": "Order now"
   },
-  "common": {
-    "featured": "Featured products",
-    "allProducts": "All products",
-    "addToCart": "Add to cart",
-    "orderWhatsapp": "Order on WhatsApp",
-    "inStock": "In stock",
-    "outOfStock": "Out of stock",
-    "loading": "Loading…",
-    "search": "Search products",
-    "categories": "Categories",
-    "all": "All"
+  "sections": { "featuredCats": "Featured categories", "featured": "Featured products", "newArrivals": "New arrivals", "seeMore": "See more", "viewAll": "View all" },
+  "card": { "addToCart": "Add to cart", "buyNow": "Buy now", "inStock": "In stock", "outOfStock": "Out of stock", "off": "OFF" },
+  "shop": { "title": "All products", "filters": "Filters", "categories": "Categories", "clearAll": "Clear all", "sort": "Sort", "sortNewest": "Newest", "sortPriceAsc": "Price: low to high", "sortPriceDesc": "Price: high to low", "noResults": "No products found." },
+  "detail": {
+    "chooseColor": "Choose a colour", "addToCart": "Add to cart", "buyNow": "Buy now",
+    "weDeliver": "We deliver", "weDeliverText": "Delivery fee is calculated at checkout based on your location.",
+    "returns": "Return delivery", "returnsText": "Not satisfied? You can return it within 24 hours.",
+    "description": "Description", "reviews": "Reviews", "similar": "Similar items you might also like", "orderWhatsapp": "Order on WhatsApp"
   },
-  "contact": {
-    "title": "Visit or contact us",
-    "location": "City Plaza Building, Kigali",
-    "payments": "We accept MTN Mobile Money and Airtel Money"
+  "cart": { "title": "Your cart", "empty": "Your cart is empty.", "total": "Total", "checkout": "Checkout", "remove": "Remove", "continue": "Continue shopping" },
+  "howto": {
+    "title": "How to buy", "subtitle": "Buying from us is fast, easy and safe. Follow these steps.",
+    "s1t": "Find products", "s1d": "Browse or search and use filters to quickly find what you want.",
+    "s2t": "Add to cart", "s2d": "Found something you like? Tap 'Add to cart'. You can review it any time.",
+    "s3t": "Checkout", "s3d": "Go to the cart and tap 'Checkout', then confirm your details.",
+    "s4t": "Pay easily", "s4d": "Choose MTN MoMo, Airtel Money, or pay on delivery.",
+    "s5t": "Delivered", "s5d": "Relax — your order is brought to you wherever you are.",
+    "ready": "Ready to start shopping?", "cta": "Start shopping"
   },
-  "footer": { "follow": "Follow us", "rights": "All rights reserved." }
+  "app": { "badge": "Mobile App Available", "title": "Shop on the go", "text": "Download our app for a faster, smoother shopping experience with exclusive mobile-only deals.", "appStore": "App Store", "android": "Android" },
+  "contact": { "title": "Visit or contact us", "location": "City Plaza Building, Kigali", "payments": "We accept MTN Mobile Money and Airtel Money" },
+  "footer": {
+    "care": "Customer care", "careText": "Need help? Our support team is available Mon–Sun, 9am–9pm.",
+    "follow": "Follow us", "company": "Company", "shop": "Shop", "service": "Customer Service",
+    "home": "Home", "about": "About Us", "contactUs": "Contact Us", "howToBuy": "How To Buy", "returns": "Returns & Refunds",
+    "products": "Products", "cart": "Cart", "orders": "Orders", "wishlist": "Wishlist",
+    "profile": "Profile", "support": "Customer Support", "terms": "Terms of Service", "privacy": "Privacy Policy",
+    "rights": "All rights reserved."
+  }
 }

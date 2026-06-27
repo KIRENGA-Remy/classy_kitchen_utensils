@@ -2,7 +2,6 @@ import { Request } from 'express';
 
 export type Lang = 'en' | 'rw';
 
-// Pick the response language from ?lang=, then Accept-Language, default 'en'.
 export function getLang(req: Request): Lang {
   const q = String(req.query.lang ?? '').toLowerCase();
   if (q === 'rw' || q === 'en') return q;
@@ -21,6 +20,10 @@ export function localizeProduct(p: any, lang: Lang) {
     name: lang === 'rw' ? p.nameRw : p.nameEn,
     description: lang === 'rw' ? p.descriptionRw : p.descriptionEn,
     priceRwf: p.priceRwf,
+    oldPriceRwf: p.oldPriceRwf ?? null,
+    colors: p.colors ?? [],
+    rating: p.rating ?? 0,
+    reviewCount: p.reviewCount ?? 0,
     stock: p.stock,
     isFeatured: p.isFeatured,
     category: p.category ? localizeCategory(p.category, lang) : undefined,

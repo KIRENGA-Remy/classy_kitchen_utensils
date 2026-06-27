@@ -18,4 +18,3 @@ npm-debug.log*
 backend/prisma/*.db
 # misc
 coverage/
-commit_plan.md

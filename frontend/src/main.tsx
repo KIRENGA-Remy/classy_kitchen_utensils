@@ -5,15 +5,21 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './i18n';
 import './index.css';
 import App from './App';
+import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <CartProvider>
+        <WishlistProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </WishlistProvider>
+      </CartProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 );

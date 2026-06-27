@@ -27,13 +27,18 @@ model Product {
   nameRw        String
   descriptionEn String         @default("")
   descriptionRw String         @default("")
-  priceRwf      Int                                  // whole RWF
+  priceRwf      Int                                  // whole RWF (current price)
+  oldPriceRwf   Int?                                 // optional crossed-out price (discount)
+  colors        String[]       @default([])          // optional color/variant options
+  rating        Float          @default(0)
+  reviewCount   Int            @default(0)
   stock         Int            @default(0)
   isActive      Boolean        @default(true)
   isFeatured    Boolean        @default(false)
   category      Category       @relation(fields: [categoryId], references: [id])
   categoryId    String
   images        ProductImage[]
+  reviews       Review[]
   orderItems    OrderItem[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
@@ -83,6 +88,18 @@ model OrderItem {
   quantity     Int
 
   @@index([orderId])
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId String
+  author    String
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+
+  @@index([productId])
 }
 
 model AdminUser {

@@ -1,27 +1,45 @@
 {
   "brand": "Classy Kitchen Utensils",
-  "nav": { "home": "Ahabanza", "shop": "Iduka", "contact": "Twandikire" },
+  "topbar": { "helpline": "TELEFONE Y'UBUFASHA", "getApp": "Pakurura Porogaramu", "lang": "English" },
+  "nav": { "home": "Ahabanza", "shop": "Iduka", "contact": "Twandikire", "howToBuy": "Uko Bagura" },
+  "menu": { "about": "Ibyerekeye Twe", "app": "Porogaramu ya Telefone", "orders": "Ibyo waguze", "signin": "Injira", "register": "Iyandikishe" },
+  "search": { "placeholder": "Shakisha ibicuruzwa…", "byImageTitle": "Shakisha n'ifoto", "byImageHint": "Ohereza ifoto y'igicuruzwa tubone ibisa nacyo.", "browse": "Kanda uhitemo ifoto", "supports": "JPG, PNG (ntarengwa 10MB)" },
   "hero": {
-    "title": "Ibikoresho byiza byo mu gikoni, bigezwa i Kigali",
-    "subtitle": "Ibikoresho byo guteka, imashini, amashyiga n’ibyo ku meza — ishyura mu buryo bworoshye na MTN MoMo cyangwa Airtel Money.",
-    "cta": "Gura nonaha"
+    "slide1Title": "Ibikoresho byiza byo mu gikoni, bigezwa i Kigali",
+    "slide1Sub": "Ibyo guteka, imashini, amashyiga n'ibyo ku meza — ishyura na MTN MoMo cyangwa Airtel Money.",
+    "slide2Title": "Ibiciro biri hasi cyane",
+    "slide2Sub": "Ibiciro byiza ku bikoresho byose byo mu gikoni.",
+    "slide3Title": "Bikugezwaho aho uri",
+    "slide3Sub": "Aho uri hose mu Rwanda — tumiza none, turabikuzanira.",
+    "shopNow": "Gura nonaha", "browse": "Sura ibicuruzwa", "orderNow": "Tumiza none"
   },
-  "common": {
-    "featured": "Ibicuruzwa byihariye",
-    "allProducts": "Ibicuruzwa byose",
-    "addToCart": "Shyira mu gitebo",
-    "orderWhatsapp": "Tumiza kuri WhatsApp",
-    "inStock": "Birahari",
-    "outOfStock": "Byashize",
-    "loading": "Biragenda gufungura…",
-    "search": "Shakisha ibicuruzwa",
-    "categories": "Ibyiciro",
-    "all": "Byose"
+  "sections": { "featuredCats": "Ibyiciro byihariye", "featured": "Ibicuruzwa byihariye", "newArrivals": "Ibije vuba", "seeMore": "Reba ibindi", "viewAll": "Reba byose" },
+  "card": { "addToCart": "Shyira mu gitebo", "buyNow": "Gura nonaha", "inStock": "Birahari", "outOfStock": "Byashize", "off": "KUGABANUKA" },
+  "shop": { "title": "Ibicuruzwa byose", "filters": "Amafilteri", "categories": "Ibyiciro", "clearAll": "Siba byose", "sort": "Tondeka", "sortNewest": "Ibishya", "sortPriceAsc": "Igiciro: gito → kinini", "sortPriceDesc": "Igiciro: kinini → gito", "noResults": "Nta bicuruzwa biboneka." },
+  "detail": {
+    "chooseColor": "Hitamo ibara", "addToCart": "Shyira mu gitebo", "buyNow": "Gura nonaha",
+    "weDeliver": "Turabigeza", "weDeliverText": "Ikiguzi cyo kohereza kibarwa hashingiwe aho uri.",
+    "returns": "Gusubiza", "returnsText": "Utanyuzwe? Ushobora kubisubiza mu masaha 24.",
+    "description": "Ibisobanuro", "reviews": "Ibitekerezo", "similar": "Ibindi byasa nibi", "orderWhatsapp": "Tumiza kuri WhatsApp"
   },
-  "contact": {
-    "title": "Dusure cyangwa utwandikire",
-    "location": "Inyubako ya City Plaza, Kigali",
-    "payments": "Twakira MTN Mobile Money na Airtel Money"
+  "cart": { "title": "Igitebo cyawe", "empty": "Igitebo cyawe nta kirimo.", "total": "Igiteranyo", "checkout": "Komeza kwishyura", "remove": "Kuraho", "continue": "Komeza kugura" },
+  "howto": {
+    "title": "Uko bagura", "subtitle": "Kugura kuri twe ni byihuse, byoroshye kandi bitekanye. Kurikiza izi ntambwe.",
+    "s1t": "Shakisha ibicuruzwa", "s1d": "Sura cyangwa ushakishe ukoresheje amafilteri kugira ngo ubone ibyo ushaka vuba.",
+    "s2t": "Shyira mu gitebo", "s2d": "Wabonye igicuruzwa ukunda? Kanda 'Shyira mu gitebo'. Ushobora kukireba igihe cyose.",
+    "s3t": "Komeza kugura", "s3d": "Jya mu gitebo ukande 'Komeza kwishyura', hanyuma wemeze amakuru yawe.",
+    "s4t": "Ishyura byoroshye", "s4d": "Hitamo MTN MoMo, Airtel Money, cyangwa wishyure igihe cyo gutanga.",
+    "s5t": "Bikugezwaho", "s5d": "Ruhuka — igicuruzwa cyawe kibikugezwaho aho uri.",
+    "ready": "Witeguye gutangira kugura?", "cta": "Tangira kugura"
   },
-  "footer": { "follow": "Dukurikire", "rights": "Uburenganzira bwose bwihariwe." }
+  "app": { "badge": "Porogaramu Irahari", "title": "Gura aho uri hose", "text": "Pakurura porogaramu yacu kugira ngo ugure byoroshye kandi vuba, ufite n'ibiciro byihariye.", "appStore": "App Store", "android": "Android" },
+  "contact": { "title": "Dusure cyangwa utwandikire", "location": "Inyubako ya City Plaza, Kigali", "payments": "Twakira MTN Mobile Money na Airtel Money" },
+  "footer": {
+    "care": "Serivisi ku bakiriya", "careText": "Ukeneye ubufasha? Itsinda ryacu rihari kuwa Mbere–Cyumweru, 9am–9pm.",
+    "follow": "Dukurikire", "company": "Sosiyete", "shop": "Iduka", "service": "Serivisi ku Bakiriya",
+    "home": "Ahabanza", "about": "Ibyerekeye Twe", "contactUs": "Twandikire", "howToBuy": "Uko Bagura", "returns": "Gusubiza no Gusubizwa",
+    "products": "Ibicuruzwa", "cart": "Igitebo", "orders": "Ibyo waguze", "wishlist": "Ibyo ukunda",
+    "profile": "Umwirondoro", "support": "Ubufasha", "terms": "Amabwiriza", "privacy": "Politiki y'ibanga",
+    "rights": "Uburenganzira bwose bwihariwe."
+  }
 }
