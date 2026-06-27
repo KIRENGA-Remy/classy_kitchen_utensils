@@ -19,3 +19,4 @@ backend/prisma/*.db
 # misc
 coverage/
 commit_plan.md
+backend/uploads/
