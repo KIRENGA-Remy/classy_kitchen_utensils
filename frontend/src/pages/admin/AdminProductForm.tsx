@@ -22,6 +22,7 @@ export default function AdminProductForm() {
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
+  const [urlInput, setUrlInput] = useState('');
 
   const { data: categories } = useQuery({
     queryKey: ['admin-categories'],
@@ -60,6 +61,14 @@ export default function AdminProductForm() {
     } finally {
       setUploading(false);
     }
+  };
+
+  const addByUrl = () => {
+    const url = urlInput.trim();
+    if (!url) return;
+    if (!/^https?:\/\//i.test(url)) { setError('Image URL must start with http(s)://'); return; }
+    setImages((prev) => (prev.includes(url) ? prev : [...prev, url]));
+    setUrlInput('');
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -148,6 +157,13 @@ export default function AdminProductForm() {
               <span className="text-[10px] mt-1">{uploading ? '…' : 'Upload'}</span>
               <input type="file" accept="image/*" multiple className="hidden" onChange={(e) => onUpload(e.target.files)} />
             </label>
+          </div>
+          <div className="flex gap-2 mt-3">
+            <input value={urlInput} onChange={(e) => setUrlInput(e.target.value)}
+              placeholder="…or paste an image URL (e.g. a Cloudinary link)"
+              className="flex-1 border border-gray-200 rounded-lg px-3 py-2 text-sm" />
+            <button type="button" onClick={addByUrl}
+              className="px-4 py-2 rounded-lg border border-brand-accent text-brand-accent text-sm font-semibold">Add</button>
           </div>
         </div>
       </div>
