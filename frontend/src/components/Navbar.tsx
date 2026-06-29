@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Search, Camera, ShoppingCart, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import LanguageSelector from './LanguageSelector';
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -80,6 +81,8 @@ export default function Navbar() {
               </span>
             )}
           </Link>
+
+          <LanguageSelector />
 
           <button className="md:hidden p-2" onClick={() => setMobileOpen((o) => !o)} aria-label="Menu">
             {mobileOpen ? <X /> : <Menu />}
