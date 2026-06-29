@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import AuthShell from './AuthShell';
 
 export default function AdminLogin() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -18,28 +21,48 @@ export default function AdminLogin() {
       navigate('/admin');
     } catch (err: any) {
       setError(err.response?.data?.error ?? 'Login failed');
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   };
 
+  const inputWrap = 'flex items-center gap-2 border border-gray-200 rounded-xl px-3 focus-within:ring-2 focus-within:ring-brand-accent/40';
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <form onSubmit={submit} className="bg-white rounded-2xl shadow p-8 w-full max-w-sm">
-        <h1 className="text-xl font-extrabold text-brand mb-1">Admin sign in</h1>
-        <p className="text-sm text-gray-500 mb-6">Classy Kitchen Utensils</p>
-        {error && <p className="bg-red-50 text-red-600 text-sm rounded-lg px-3 py-2 mb-4">{error}</p>}
-        <label className="block text-sm font-medium mb-1">Email</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" required
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-4" />
-        <label className="block text-sm font-medium mb-1">Password</label>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" required
-          className="w-full border border-gray-200 rounded-lg px-3 py-2 mb-6" />
+    <AuthShell>
+      <h1 className="text-3xl font-extrabold text-brand text-center">Welcome back!</h1>
+      <p className="text-sm text-gray-500 text-center mt-1 mb-6">Sign in to the admin dashboard</p>
+
+      {error && <p className="bg-red-50 text-red-600 text-sm rounded-lg px-3 py-2 mb-4">{error}</p>}
+
+      <form onSubmit={submit} className="space-y-4">
+        <div>
+          <label className="text-sm font-medium">Email</label>
+          <div className={inputWrap}>
+            <Mail size={16} className="text-gray-400" />
+            <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+              placeholder="admin@classykitchen.rw" className="w-full py-2.5 outline-none bg-transparent" />
+          </div>
+        </div>
+        <div>
+          <label className="text-sm font-medium">Password</label>
+          <div className={inputWrap}>
+            <Lock size={16} className="text-gray-400" />
+            <input type={show ? 'text' : 'password'} required value={password} onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password" className="w-full py-2.5 outline-none bg-transparent" />
+            <button type="button" onClick={() => setShow((s) => !s)} className="text-gray-400">
+              {show ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
+          </div>
+        </div>
+
         <button disabled={loading}
-          className="w-full bg-brand-accent text-white font-bold rounded-lg py-2.5 disabled:opacity-60">
-          {loading ? '…' : 'Sign in'}
+          className="w-full bg-brand-accent text-white font-bold rounded-xl py-3 disabled:opacity-60 hover:bg-amber-600 transition">
+          {loading ? 'Signing in…' : 'Sign in'}
         </button>
       </form>
-    </div>
+
+      <p className="text-center text-sm text-gray-500 mt-6">
+        Don’t have an account? <Link to="/admin/signup" className="text-brand-accent font-semibold underline">Sign up</Link>
+      </p>
+    </AuthShell>
   );
 }

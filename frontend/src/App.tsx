@@ -11,6 +11,7 @@ import ContactPage from './pages/ContactPage';
 import CartPage from './pages/CartPage';
 
 import AdminLogin from './pages/admin/AdminLogin';
+import AdminSignup from './pages/admin/AdminSignup';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProductForm from './pages/admin/AdminProductForm';
 
@@ -29,6 +30,7 @@ export default function App() {
 
       {/* Admin (separate, protected) */}
       <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/signup" element={<AdminSignup />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<AdminLayout />}>
           <Route path="/admin" element={<AdminDashboard />} />

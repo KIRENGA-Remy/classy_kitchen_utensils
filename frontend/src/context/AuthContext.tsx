@@ -6,6 +6,7 @@ interface AuthCtx {
   admin: Admin | null;
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
+  register: (data: { email: string; name: string; password: string; inviteCode?: string }) => Promise<void>;
   logout: () => void;
 }
 
@@ -19,12 +20,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try { return JSON.parse(localStorage.getItem(ADMIN_KEY) ?? 'null'); } catch { return null; }
   });
 
-  const login = async (email: string, password: string) => {
-    const { data } = await api.post('/auth/login', { email, password });
+  const persist = (data: { token: string; admin: Admin }) => {
     localStorage.setItem(TOKEN_KEY, data.token);
     localStorage.setItem(ADMIN_KEY, JSON.stringify(data.admin));
     setToken(data.token);
     setAdmin(data.admin);
+  };
+
+  const login = async (email: string, password: string) => {
+    const { data } = await api.post('/auth/login', { email, password });
+    persist(data);
+  };
+
+  const register: AuthCtx['register'] = async (payload) => {
+    const { data } = await api.post('/auth/register', payload);
+    persist(data);
   };
 
   const logout = () => {
@@ -34,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setAdmin(null);
   };
 
-  return <Ctx.Provider value={{ admin, token, login, logout }}>{children}</Ctx.Provider>;
+  return <Ctx.Provider value={{ admin, token, login, register, logout }}>{children}</Ctx.Provider>;
 }
 
 export const useAuth = () => {
