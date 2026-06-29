@@ -18,6 +18,11 @@ const schema = z.object({
 
   // Optional: set this to push uploads to Cloudinary instead of local disk.
   CLOUDINARY_URL: z.string().optional(),
+
+  
+  // If set, admin sign-up requires this invite code. If unset, sign-up is allowed
+  // only while NO admin exists yet (first-run bootstrap), then disabled.
+  ADMIN_REGISTRATION_SECRET: z.string().optional(),
 });
 
 const parsed = schema.safeParse(process.env);
