@@ -54,10 +54,10 @@ export default function Navbar() {
               placeholder={t('search.placeholder')}
               className="w-full rounded-full border border-gray-200 bg-gray-50 pl-10 pr-12 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-accent/40"
             />
-            <button type="button" onClick={() => setImgOpen((o) => !o)}
+            {/* <button type="button" onClick={() => setImgOpen((o) => !o)}
               className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-gray-500 hover:text-brand-accent" aria-label="Search by image">
               <Camera size={18} />
-            </button>
+            </button> */}
 
             {imgOpen && (
               <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 p-4 z-50">
