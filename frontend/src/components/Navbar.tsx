@@ -26,7 +26,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-sm">
-      <div className="w-full px-8 sm:px-16 h-16 flex items-center justify-between gap-4">
+      <div className="w-full px-8 sm:px-16 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
 
         {/* LEFT: logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
@@ -35,7 +35,7 @@ export default function Navbar() {
         </Link>
 
         {/* CENTER: nav links */}
-        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <nav className="hidden md:flex items-center justify-center gap-8">
           {links.map((l) => (
             <NavLink key={l.to} to={l.to}
               className={({ isActive }) => `text-base font-semibold ${isActive ? 'text-brand-accent' : 'text-gray-700 hover:text-brand-accent'}`}>
