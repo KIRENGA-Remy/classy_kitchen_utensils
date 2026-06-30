@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="w-full px-8 sm:px-16 py-12">
 
         {/* ── Shop on the go (was MobileAppSection) ── */}
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.02] via-white/[0.04] to-white/[0.07] p-8 sm:p-12 grid md:grid-cols-2 gap-8 items-center">
+        {/* <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.02] via-white/[0.04] to-white/[0.07] p-8 sm:p-12 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <span className="inline-flex items-center gap-2 text-brand-accent text-xs font-bold border border-brand-accent/40 rounded-full px-3 py-1">
               ● {t('app.badge')}
@@ -34,7 +34,7 @@ export default function Footer() {
               </span>
             </a>
           </div>
-        </div>
+        </div> */}
 
         {/* ── Customer care + Follow us ── */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mt-12 pb-8 border-b border-white/10">
