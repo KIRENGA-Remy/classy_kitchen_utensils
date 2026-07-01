@@ -25,16 +25,16 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <h1 className="text-2xl font-extrabold text-brand">Products</h1>
-        <Link to="/admin/products/new" className="flex items-center gap-2 bg-brand-accent text-white font-semibold px-4 py-2 rounded-lg">
+        <Link to="/admin/products/new" className="inline-flex items-center justify-center gap-2 bg-brand-accent text-white font-semibold px-4 py-2 rounded-lg">
           <PlusCircle size={18} /> New product
         </Link>
       </div>
 
-      {isLoading ? <p className="text-gray-400">…</p> : (
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-          <table className="w-full text-sm">
+      {isLoading ? <p className="text-gray-400">Loading…</p> : (
+        <div className="bg-white rounded-2xl border border-gray-100 overflow-x-auto">
+          <table className="w-full text-sm min-w-[640px]">
             <thead className="bg-gray-50 text-gray-500 text-left">
               <tr>
                 <th className="p-3">Product</th><th className="p-3">Category</th>
@@ -52,7 +52,7 @@ export default function AdminDashboard() {
                     </div>
                   </td>
                   <td className="p-3 text-gray-600">{p.category?.nameEn}</td>
-                  <td className="p-3 font-semibold text-brand-accent">{formatRwf(p.priceRwf)}</td>
+                  <td className="p-3 font-semibold text-brand-accent whitespace-nowrap">{formatRwf(p.priceRwf)}</td>
                   <td className="p-3">{p.stock}</td>
                   <td className="p-3">
                     <span className={`text-xs px-2 py-0.5 rounded-full ${p.isActive ? 'bg-green-100 text-green-700' : 'bg-gray-200 text-gray-500'}`}>
