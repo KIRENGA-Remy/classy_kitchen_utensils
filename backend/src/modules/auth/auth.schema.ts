@@ -13,3 +13,9 @@ export const registerSchema = z.object({
   inviteCode: z.string().optional(),
 });
 export type RegisterInput = z.infer<typeof registerSchema>;
+
+export const googleSchema = z.object({
+  credential: z.string().min(10),      // Google ID token from the client
+  inviteCode: z.string().optional(),
+});
+export type GoogleInput = z.infer<typeof googleSchema>;
