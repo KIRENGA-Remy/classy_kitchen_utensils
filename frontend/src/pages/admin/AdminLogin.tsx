@@ -2,10 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { GoogleLogin } from '@react-oauth/google';
 import AuthShell from './AuthShell';
 
+const googleEnabled = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
+
 export default function AdminLogin() {
-  const { login } = useAuth();
+  const { login, googleLogin } = useAuth();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -59,6 +62,31 @@ export default function AdminLogin() {
           {loading ? 'Signing in…' : 'Sign in'}
         </button>
       </form>
+
+      {googleEnabled && (
+        <>
+          <div className="flex items-center gap-3 my-5">
+            <span className="h-px bg-gray-200 flex-1" />
+            <span className="text-xs text-gray-400">or</span>
+            <span className="h-px bg-gray-200 flex-1" />
+          </div>
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={async (cr) => {
+                setError('');
+                if (!cr.credential) { setError('Google sign-in failed'); return; }
+                try {
+                  await googleLogin(cr.credential);
+                  navigate('/admin');
+                } catch (err: any) {
+                  setError(err.response?.data?.error ?? 'Google sign-in failed');
+                }
+              }}
+              onError={() => setError('Google sign-in failed')}
+            />
+          </div>
+        </>
+      )}
 
       <p className="text-center text-sm text-gray-500 mt-6">
         Don’t have an account? <Link to="/admin/signup" className="text-brand-accent font-semibold underline">Sign up</Link>
