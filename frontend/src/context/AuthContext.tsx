@@ -7,6 +7,7 @@ interface AuthCtx {
   token: string | null;
   login: (email: string, password: string) => Promise<void>;
   register: (data: { email: string; name: string; password: string; inviteCode?: string }) => Promise<void>;
+  googleLogin: (credential: string, inviteCode?: string) => Promise<void>;
   logout: () => void;
 }
 
@@ -37,6 +38,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     persist(data);
   };
 
+  const googleLogin: AuthCtx['googleLogin'] = async (credential, inviteCode) => {
+    const { data } = await api.post('/auth/google', { credential, inviteCode });
+    persist(data);
+  };
+
   const logout = () => {
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(ADMIN_KEY);
@@ -44,7 +50,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setAdmin(null);
   };
 
-  return <Ctx.Provider value={{ admin, token, login, register, logout }}>{children}</Ctx.Provider>;
+  return <Ctx.Provider value={{ admin, token, login, register, googleLogin, logout }}>{children}</Ctx.Provider>;
 }
 
 export const useAuth = () => {

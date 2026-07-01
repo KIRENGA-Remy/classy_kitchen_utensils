@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, User, Eye, EyeOff, KeyRound } from 'lucide-react';
+import { GoogleLogin } from '@react-oauth/google';
 import { useAuth } from '../../context/AuthContext';
 import AuthShell from './AuthShell';
 
+const googleEnabled = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
+
 export default function AdminSignup() {
-  const { register } = useAuth();
+  const { register, googleLogin } = useAuth();
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: '', name: '', password: '', confirm: '', inviteCode: '' });
   const [show, setShow] = useState(false);
@@ -67,9 +70,35 @@ export default function AdminSignup() {
         </button>
       </form>
 
+      {googleEnabled && (
+        <>
+          <div className="flex items-center gap-3 my-5">
+            <span className="h-px bg-gray-200 flex-1" />
+            <span className="text-xs text-gray-400">or</span>
+            <span className="h-px bg-gray-200 flex-1" />
+          </div>
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={async (cr) => {
+                setError('');
+                if (!cr.credential) { setError('Google sign-in failed'); return; }
+                try {
+                  await googleLogin(cr.credential, form.inviteCode || undefined);
+                  navigate('/admin');
+                } catch (err: any) {
+                  setError(err.response?.data?.error ?? 'Google sign-in failed');
+                }
+              }}
+              onError={() => setError('Google sign-in failed')}
+            />
+          </div>
+        </>
+      )}
+
       <p className="text-center text-sm text-gray-500 mt-6">
         Already have an account? <Link to="/admin/login" className="text-brand-accent font-semibold underline">Sign in</Link>
       </p>
     </AuthShell>
   );
 }
+
